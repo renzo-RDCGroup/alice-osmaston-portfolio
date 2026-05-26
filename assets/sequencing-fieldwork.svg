@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract field genomics visual</title>
+  <desc id="desc">A layered illustration of sequencing reads, city geography, lab grids, and pathogen surveillance networks.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f3eadc"/>
+      <stop offset="0.45" stop-color="#dce8df"/>
+      <stop offset="1" stop-color="#b8d1ce"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" x2="1">
+      <stop offset="0" stop-color="#126a65"/>
+      <stop offset="1" stop-color="#5d6f46"/>
+    </linearGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <path d="M0 670 C210 590 305 735 520 640 C740 540 890 585 1055 508 C1270 410 1400 470 1600 360 L1600 1000 L0 1000 Z" fill="#f8f5ec"/>
+  <path d="M0 760 C190 690 310 805 525 718 C720 638 910 652 1118 568 C1320 486 1452 520 1600 450 L1600 1000 L0 1000 Z" fill="#e1d8c6"/>
+  <path d="M990 0 L1600 0 L1600 1000 L1050 1000 C1110 855 1170 710 1148 570 C1120 388 1016 230 990 0 Z" fill="#f7c978" opacity=".24"/>
+  <g opacity=".18" stroke="#17201f" stroke-width="2" fill="none">
+    <path d="M1130 150 H1510"/>
+    <path d="M1130 212 H1510"/>
+    <path d="M1130 274 H1510"/>
+    <path d="M1130 336 H1510"/>
+    <path d="M1130 398 H1510"/>
+    <path d="M1195 100 V460"/>
+    <path d="M1260 100 V460"/>
+    <path d="M1325 100 V460"/>
+    <path d="M1390 100 V460"/>
+    <path d="M1455 100 V460"/>
+  </g>
+  <g opacity=".72">
+    <path d="M1036 714 C1120 670 1260 690 1338 612 C1406 544 1460 480 1548 450" fill="none" stroke="url(#water)" stroke-width="18" stroke-linecap="round"/>
+    <path d="M1072 775 C1215 750 1322 770 1440 708 C1508 672 1545 636 1600 622" fill="none" stroke="#aa684d" stroke-width="8" stroke-linecap="round" opacity=".68"/>
+  </g>
+  <g fill="none" stroke="#126a65" stroke-linecap="round">
+    <path d="M1198 548 c36 -24 70 -24 106 0 s70 24 106 0" stroke-width="7"/>
+    <path d="M1198 592 c36 24 70 24 106 0 s70 -24 106 0" stroke-width="7"/>
+    <path d="M1218 538 v66 M1262 532 v78 M1306 532 v78 M1350 538 v66 M1394 538 v66" stroke-width="4" opacity=".85"/>
+  </g>
+  <g opacity=".88">
+    <circle cx="1185" cy="245" r="13" fill="#126a65"/>
+    <circle cx="1375" cy="190" r="13" fill="#aa684d"/>
+    <circle cx="1490" cy="326" r="13" fill="#c8973f"/>
+    <circle cx="1288" cy="370" r="13" fill="#5d6f46"/>
+    <path d="M1185 245 L1375 190 L1490 326 L1288 370 Z" fill="none" stroke="#17201f" stroke-width="4" opacity=".5"/>
+  </g>
+  <g transform="translate(1030 785)" opacity=".72">
+    <rect x="0" y="0" width="330" height="132" rx="0" fill="#ffffff" opacity=".78"/>
+    <path d="M28 36 H302 M28 66 H255 M28 96 H285" stroke="#17201f" stroke-width="10" stroke-linecap="round" opacity=".45"/>
+    <path d="M26 28 H180" stroke="#126a65" stroke-width="6" stroke-linecap="round"/>
+    <path d="M26 58 H222" stroke="#c8973f" stroke-width="6" stroke-linecap="round"/>
+    <path d="M26 88 H145" stroke="#aa684d" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <ellipse cx="1190" cy="850" rx="420" ry="42" fill="#17201f" opacity=".12" filter="url(#soft)"/>
+</svg>
