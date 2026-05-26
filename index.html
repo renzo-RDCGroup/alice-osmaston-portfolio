@@ -1,0 +1,949 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alice Osmaston | Genomic Epidemiology Portfolio</title>
+    <meta name="description" content="Portfolio for Alice Osmaston, PhD candidate at UCL working on Mycobacterium tuberculosis genomics, transmission dynamics, drug resistance, and field-ready sequencing.">
+    <meta property="og:title" content="Alice Osmaston | Genomic Epidemiology Portfolio">
+    <meta property="og:description" content="Research, publications, talks, and field work in tuberculosis genomics and pathogen surveillance.">
+    <meta property="og:type" content="website">
+    <style>
+      :root {
+        --ink: #17201f;
+        --muted: #53605c;
+        --line: #d9e2de;
+        --paper: #fbfaf6;
+        --panel: #ffffff;
+        --sage: #dce8df;
+        --teal: #126a65;
+        --moss: #5d6f46;
+        --clay: #aa684d;
+        --gold: #c8973f;
+        --shadow: 0 18px 50px rgba(35, 48, 45, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+        text-underline-offset: 0.18em;
+      }
+
+      .wrap {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        border-bottom: 1px solid rgba(217, 226, 222, 0.78);
+        background: rgba(251, 250, 246, 0.9);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 68px;
+        gap: 24px;
+      }
+
+      .mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 760;
+        letter-spacing: 0;
+        text-decoration: none;
+      }
+
+      .mark-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: conic-gradient(from 220deg, var(--teal), var(--gold), var(--clay), var(--teal));
+        box-shadow: 0 0 0 5px rgba(18, 106, 101, 0.09);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-size: 0.94rem;
+        color: var(--muted);
+      }
+
+      .nav-links a {
+        text-decoration: none;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 18px;
+        border: 1px solid var(--ink);
+        background: var(--ink);
+        color: #fff;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 10px 24px rgba(23, 32, 31, 0.14);
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--ink);
+        box-shadow: none;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        min-height: calc(100svh - 68px);
+        display: grid;
+        align-items: center;
+        padding: 72px 0 54px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(251, 250, 246, 0.98) 0%, rgba(251, 250, 246, 0.92) 44%, rgba(251, 250, 246, 0.28) 100%),
+          url("assets/escmid-presentation.jpg");
+        background-size: cover;
+        background-position: center;
+        transform: scale(1.01);
+      }
+
+      .hero-inner {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 0.98fr) minmax(300px, 0.72fr);
+        gap: 44px;
+        align-items: end;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--teal);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 790px;
+        margin-bottom: 20px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(3.1rem, 8vw, 7.2rem);
+        line-height: 0.92;
+        letter-spacing: 0;
+      }
+
+      .lede {
+        max-width: 710px;
+        color: #35423f;
+        font-size: clamp(1.1rem, 2vw, 1.45rem);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .signal-panel {
+        padding: 22px;
+        border: 1px solid rgba(23, 32, 31, 0.14);
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-photo {
+        margin: 0;
+        border: 1px solid rgba(23, 32, 31, 0.16);
+        background: rgba(255, 255, 255, 0.84);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-photo img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+
+      .hero-photo figcaption {
+        padding: 16px 18px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .signal-panel h2 {
+        margin-bottom: 16px;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .signal-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .signal {
+        padding: 14px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .signal:first-child {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .signal strong {
+        display: block;
+        font-size: 1.8rem;
+        line-height: 1;
+      }
+
+      .signal span {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      section {
+        padding: 84px 0;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.6fr) minmax(0, 1fr);
+        gap: 36px;
+        align-items: start;
+        margin-bottom: 34px;
+      }
+
+      h2 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .section-head p {
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .research-band {
+        background: #eef3ee;
+        border-block: 1px solid var(--line);
+      }
+
+      .research-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .research-card,
+      .publication,
+      .talk,
+      .media-card,
+      .note-card {
+        border: 1px solid var(--line);
+        background: var(--panel);
+      }
+
+      .research-card {
+        min-height: 260px;
+        padding: 22px;
+        display: grid;
+        align-content: space-between;
+      }
+
+      .research-card h3 {
+        margin-bottom: 12px;
+        font-size: 1.28rem;
+      }
+
+      .research-card p,
+      .publication p,
+      .talk p,
+      .note-card p {
+        color: var(--muted);
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 10px;
+        border: 1px solid rgba(18, 106, 101, 0.2);
+        background: rgba(18, 106, 101, 0.08);
+        color: #0d5652;
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 16px;
+      }
+
+      .talk {
+        display: grid;
+        grid-template-columns: 150px minmax(0, 1fr) 138px;
+        gap: 20px;
+        align-items: start;
+        padding: 20px;
+      }
+
+      .date {
+        color: var(--clay);
+        font-weight: 800;
+      }
+
+      .talk h3,
+      .publication h3 {
+        margin-bottom: 8px;
+        font-size: 1.18rem;
+      }
+
+      .status {
+        justify-self: end;
+        padding: 7px 10px;
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+      }
+
+      .status.verified {
+        border-color: rgba(18, 106, 101, 0.3);
+        color: var(--teal);
+      }
+
+      .publication-list {
+        display: grid;
+        gap: 16px;
+      }
+
+      .publication {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 150px;
+        gap: 20px;
+        padding: 22px;
+      }
+
+      .publication a {
+        font-weight: 800;
+      }
+
+      .source-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .source-links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 0 11px;
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+
+      .media-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        gap: 18px;
+      }
+
+      .media-card {
+        overflow: hidden;
+      }
+
+      .media-card img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        background: #e7ece8;
+      }
+
+      .video-placeholder {
+        display: grid;
+        place-items: center;
+        min-height: 220px;
+        aspect-ratio: 16 / 9;
+        padding: 24px;
+        background:
+          linear-gradient(135deg, rgba(18, 106, 101, 0.88), rgba(23, 32, 31, 0.92)),
+          url("assets/sequencing-fieldwork.svg");
+        background-size: cover;
+        color: #fff;
+        text-align: center;
+      }
+
+      .video-placeholder strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: clamp(1.3rem, 3vw, 2.3rem);
+        line-height: 1.08;
+      }
+
+      .video-placeholder span {
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      .video-embed {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border: 0;
+        background: #111817;
+        display: block;
+      }
+
+      video.video-embed {
+        object-fit: contain;
+      }
+
+      .media-card div {
+        padding: 18px;
+      }
+
+      .media-card h3 {
+        margin-bottom: 8px;
+      }
+
+      .hobby-card {
+        display: grid;
+        grid-template-columns: minmax(0, 0.88fr) minmax(280px, 1.12fr);
+        gap: 22px;
+        align-items: center;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        overflow: hidden;
+      }
+
+      .hobby-card img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        background: #dfe7e3;
+      }
+
+      .hobby-copy {
+        padding: 24px;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.55fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .bio-copy {
+        font-size: 1.08rem;
+        color: #31403d;
+      }
+
+      .note-card {
+        padding: 22px;
+      }
+
+      .note-card ul {
+        margin: 12px 0 0;
+        padding-left: 19px;
+        color: var(--muted);
+      }
+
+      .contact-band {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .contact-band .section-head p,
+      .contact-band .eyebrow {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .contact-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .contact-links a {
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: #fff;
+      }
+
+      .footer {
+        padding: 28px 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 860px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 16px 0;
+        }
+
+        .nav-links {
+          width: 100%;
+          overflow-x: auto;
+          padding-bottom: 2px;
+        }
+
+        .hero {
+          min-height: auto;
+          padding-top: 56px;
+        }
+
+        .hero-inner,
+        .section-head,
+        .split {
+          grid-template-columns: 1fr;
+        }
+
+        .research-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .media-grid,
+        .hobby-card {
+          grid-template-columns: 1fr;
+        }
+
+        .talk,
+        .publication {
+          grid-template-columns: 1fr;
+        }
+
+        .status {
+          justify-self: start;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .wrap {
+          width: min(100% - 28px, 1120px);
+        }
+
+        .nav-links {
+          gap: 14px;
+          font-size: 0.88rem;
+        }
+
+        h1 {
+          font-size: clamp(2.7rem, 16vw, 4.2rem);
+        }
+
+        section {
+          padding: 62px 0;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap nav">
+        <a class="mark" href="#top" aria-label="Alice Osmaston home"><span class="mark-dot" aria-hidden="true"></span>Alice Osmaston</a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#research">Research</a>
+          <a href="#talks">Talks</a>
+          <a href="#publications">Publications</a>
+          <a href="#hobbies">Hobbies</a>
+          <a href="#profile">Profile</a>
+          <a href="sources.html">Sources</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="wrap hero-inner">
+          <div>
+            <p class="eyebrow">Genomic epidemiology · tuberculosis · pathogen surveillance</p>
+            <h1 id="hero-title">Alice Osmaston</h1>
+            <p class="lede">PhD candidate at University College London studying the genomics of <em>Mycobacterium tuberculosis</em>, with a focus on transmission dynamics, drug resistance, and sequencing workflows that can work closer to the field.</p>
+            <div class="hero-actions">
+              <a class="button" href="#talks">View talks</a>
+              <a class="button secondary" href="#publications">Read publications</a>
+            </div>
+          </div>
+
+          <figure class="hero-photo">
+            <img src="assets/escmid-presentation.jpg" alt="Alice Osmaston presenting tuberculosis sequencing work at ESCMID Global in Munich">
+            <figcaption>Presenting low-cost, high-throughput extraction and long-read sequencing work for <em>Mycobacterium tuberculosis</em> at ESCMID Global, Munich.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="research" class="research-band" aria-labelledby="research-title">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Research</p>
+              <h2 id="research-title">Turning TB genomics into practical surveillance.</h2>
+            </div>
+            <p>Alice's public research footprint sits at the junction of molecular microbiology, genomic epidemiology, and implementation. The portfolio foregrounds the problem her work is trying to solve: how to make whole-genome evidence faster, cheaper, and more useful for TB control.</p>
+          </div>
+
+          <div class="research-grid">
+            <article class="research-card">
+              <div>
+                <h3>Transmission dynamics</h3>
+                <p>Using genomic variation to understand how <em>M. tuberculosis</em> spreads across populations and how mixed infections complicate reconstruction.</p>
+              </div>
+              <div class="tag-row">
+                <span class="tag">Genomic epidemiology</span>
+                <span class="tag">Population analysis</span>
+              </div>
+            </article>
+            <article class="research-card">
+              <div>
+                <h3>Drug resistance</h3>
+                <p>Connecting sequencing evidence to resistance markers and treatment-relevant interpretation, particularly where culture-based workflows are slow.</p>
+              </div>
+              <div class="tag-row">
+                <span class="tag">AMR</span>
+                <span class="tag">Clinical specimens</span>
+              </div>
+            </article>
+            <article class="research-card">
+              <div>
+                <h3>Field-ready sequencing</h3>
+                <p>Developing and evaluating low-cost long-read and tiled amplicon pipelines that can reduce turnaround time from weeks toward days.</p>
+              </div>
+              <div class="tag-row">
+                <span class="tag">Nanopore</span>
+                <span class="tag">TB-seq</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="talks" aria-labelledby="talks-title">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Talks and Conferences</p>
+              <h2 id="talks-title">A growing speaker record across TB, diagnostics, and sequencing.</h2>
+            </div>
+            <p>Verified entries link to public programmes or supplied presentation materials. The recent UCL London appearance remains to be confirmed with an exact title and event link.</p>
+          </div>
+
+          <div class="timeline">
+            <article class="talk">
+              <div class="date">21 May 2026</div>
+              <div>
+                <h3>A low-cost <em>Mycobacterium tuberculosis</em> complete genome using nanopore sequencing</h3>
+                <p>London Calling 2026, Oxford Nanopore Technologies. Breakout: Pathogen surveillance from in-house to in the field. Video slot prepared for the YouTube recording once uploaded.</p>
+                <div class="source-links">
+                  <a href="https://nanoporetech.com/about/events/conferences/lc26/speakers/alice-osmaston">Conference profile</a>
+                </div>
+              </div>
+              <span class="status verified">Verified</span>
+            </article>
+
+            <article class="talk">
+              <div class="date">12-16 Nov 2024</div>
+              <div>
+                <h3>The development of an optimised, cost-effective long-read sequencing pipeline to complete the <em>M. tuberculosis</em> genome</h3>
+                <p>The Union World Conference on Lung Health, Bali, Indonesia. Alice presented an oral abstract on developing a long-read sequencing pipeline for <em>Mycobacterium tuberculosis</em>, giving a more complete view of the genome and currently under-sequenced regions.</p>
+                <div class="source-links">
+                  <a href="https://pdf-program.abstractserver.com/?congress=unionconf2024">Programme PDF</a>
+                </div>
+              </div>
+              <span class="status verified">Verified</span>
+            </article>
+
+            <article class="talk">
+              <div class="date">17-21 Apr 2026</div>
+              <div>
+                <h3>ESCMID Global 2026, Munich</h3>
+                <p>Alice presented her research on developing low-cost solutions at ESCMID Global 2026, the 36th European Congress of Clinical Microbiology &amp; Infectious Diseases, held at Messe München in Munich, Germany. She used the international congress to showcase her work to the European Society of Clinical Microbiology and Infectious Diseases.</p>
+                <div class="source-links">
+                  <a href="https://www.escmid.org/congress-events/escmid-global/">Official ESCMID Global platform</a>
+                  <a href="https://www.escmid.org/congress-events/escmid-global/munich-2026/venue/">Venue details</a>
+                </div>
+              </div>
+              <span class="status verified">Verified</span>
+            </article>
+
+            <article class="talk">
+              <div class="date">May 2026</div>
+              <div>
+                <h3>UCL London talk</h3>
+                <p>Reported by project brief as a recent UCL talk. Add title, host department, room, date, and abstract once confirmed.</p>
+              </div>
+              <span class="status">To confirm</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="presentations" class="research-band" aria-labelledby="presentations-title">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Conference Media</p>
+              <h2 id="presentations-title">From conference stage to field-ready methods.</h2>
+            </div>
+          </div>
+
+          <div class="media-grid">
+            <article class="media-card">
+              <video
+                class="video-embed"
+                controls
+                preload="metadata"
+                poster="https://cap.so/api/video/og?videoId=jahbaz099gqcw0e"
+                aria-label="Alice Osmaston Nanopore Conference recording">
+                <source src="https://cap.so/api/playlist?videoId=jahbaz099gqcw0e&amp;videoType=mp4" type="video/mp4">
+                <a href="https://cap.so/s/jahbaz099gqcw0e">Watch the Nanopore conference recording</a>
+              </video>
+              <div>
+                <h3>Low-cost, high-throughput complete <em>Mycobacterium tuberculosis</em> genome sequencing</h3>
+                <p>Alice presents an optimized Oxford Nanopore workflow for complete MTB genomes, covering DNA extraction changes that preserve long fragments, rapid library preparation, high-throughput PromethION sequencing, and down-sampling work showing that around 10,000 reads can support accurate resistance prediction. The approach reduces per-genome cost while preserving long reads for transmission, resistance, and surveillance analysis.</p>
+                <div class="source-links">
+                  <a href="https://nanoporetech.com/about/events/conferences/lc26/speakers/alice-osmaston">Conference profile</a>
+                  <a href="https://cap.so/s/jahbaz099gqcw0e">Watch full recording</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="media-card">
+              <video
+                class="video-embed"
+                controls
+                preload="metadata"
+                data-start-at="8"
+                poster="https://cap.so/api/video/og?videoId=tzsak6wh541rcj5"
+                aria-label="Alice Osmaston London Calling 2026 Question Panel starting at 8 seconds">
+                <source src="https://cap.so/api/playlist?videoId=tzsak6wh541rcj5&amp;videoType=mp4#t=8" type="video/mp4">
+                <a href="https://cap.link/tzsak6wh541rcj5">Watch the panel recording</a>
+              </video>
+              <div>
+                <h3>London Calling 2026 Question Panel</h3>
+                <p>Recorded question panel from Alice's London Calling 2026 appearance.</p>
+                <div class="source-links">
+                  <a href="https://nanoporetech.com/about/events/conferences/lc26/speakers/alice-osmaston">Conference profile</a>
+                  <a href="https://cap.link/tzsak6wh541rcj5">Watch panel recording</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="media-card">
+              <div class="video-placeholder" aria-label="London Calling 2026 talk summary">
+                <p><strong>Low-cost MTB genome sequencing</strong><span>Complete genomes for scalable TB surveillance.</span></p>
+              </div>
+              <div>
+                <h3>Low-cost, high-throughput whole-genome sequencing of <em>Mycobacterium tuberculosis</em></h3>
+                <p>Alice described an end-to-end pipeline that brings complete MTB genome sequencing within reach of resource-constrained laboratories. Key optimisations included gentle bead-beating for DNA extraction, rapid library preparation, multiplexed barcoded samples on a single flow cell, and a read threshold of about 10,000 reads for accurate drug-resistance prediction. The workflow reduced per-sample cost to roughly $26 while supporting near-complete reads and scalable TB surveillance.</p>
+              </div>
+            </article>
+
+            <article class="media-card">
+              <img src="assets/escmid-presentation.jpg" alt="Alice Osmaston presenting at ESCMID Global in Munich">
+              <div>
+                <h3>ESCMID Global 2026, Munich</h3>
+                <p>ESCMID Global 2026, formerly ECCMID, took place at Messe München from 17-21 April 2026. Alice presented low-cost, high-throughput extraction and long-read sequencing work for <em>Mycobacterium tuberculosis</em>, focused on lowering the barrier to WGS for resistance, transmission, and surveillance analysis.</p>
+                <div class="source-links">
+                  <a href="https://www.escmid.org/congress-events/escmid-global/">Official ESCMID Global platform</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="media-card">
+              <img src="assets/union-bali-title-slide.jpeg" alt="Title slide for Alice Osmaston's Union World Conference on Lung Health presentation">
+              <div>
+                <h3>The Union, Bali 2024</h3>
+                <p>Oral abstract on an optimised, cost-effective long-read sequencing pipeline to complete the <em>Mycobacterium tuberculosis</em> genome, with work based at Universidad Peruana Cayetano Heredia in Lima, Peru.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="publications" class="research-band" aria-labelledby="publications-title">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Publications</p>
+              <h2 id="publications-title">Selected publications and public research outputs.</h2>
+            </div>
+          </div>
+
+          <div class="publication-list">
+            <article class="publication">
+              <div>
+                <h3>A tiled amplicon protocol for culture-free whole-genome sequencing of <em>M. tuberculosis</em> from clinical specimens</h3>
+                <p>Journal of Clinical Microbiology, 2026. Alice is listed among the authors; public abstracts describe TB-seq recovery of near-full genomes directly from sputum and resistance-relevant genomic data.</p>
+                <div class="source-links">
+                  <a href="https://www.lifescience.net/publications/1877526/a-tiled-amplicon-protocol-for-culture-free-whole-g/">Publication record</a>
+                  <a href="https://ora.ox.ac.uk/objects/uuid%3Adbd4c906-c64d-492e-995e-ddc79eb5d10a/files/rtd96k470b">Full text mirror</a>
+                </div>
+              </div>
+              <span class="status verified">2026</span>
+            </article>
+
+            <article class="publication">
+              <div>
+                <h3>Tiled Amplicon Sequencing Enables Culture-free Whole-Genome Sequencing of Pathogenic Bacteria From Clinical Specimens</h3>
+                <p>bioRxiv preprint, 2024. UCL Discovery lists Alice Osmaston as an author and provides an open-access accepted version.</p>
+                <div class="source-links">
+                  <a href="https://discovery.ucl.ac.uk/id/eprint/10204792/">UCL Discovery</a>
+                  <a href="https://doi.org/10.1101/2024.12.19.629550">DOI</a>
+                </div>
+              </div>
+              <span class="status verified">2024</span>
+            </article>
+
+            <article class="publication">
+              <div>
+                <h3>A non-invasive method for whole genome skin methylome profiling</h3>
+                <p>ResearchGate lists Alice on this 2023 article. This appears outside the TB genomics focus, so it is included as a secondary publication until the complete bibliography is confirmed.</p>
+                <div class="source-links">
+                  <a href="https://www.researchgate.net/profile/Alice-Osmaston-3">ResearchGate profile</a>
+                </div>
+              </div>
+              <span class="status verified">2023</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="hobbies" aria-labelledby="hobbies-title">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Beyond the Lab</p>
+              <h2 id="hobbies-title">Climbing, problem-solving, and time away from the bench.</h2>
+            </div>
+          </div>
+
+          <article class="hobby-card">
+            <a href="https://www.youtube.com/watch?v=qGk7ptfTQzU" aria-label="Watch climbing video on YouTube">
+              <img src="https://img.youtube.com/vi/qGk7ptfTQzU/hqdefault.jpg" alt="YouTube climbing video thumbnail">
+            </a>
+            <div class="hobby-copy">
+              <h3>Hobbies: climbing</h3>
+              <p>Climbing adds a useful personal note to the portfolio: technical, patient, physical problem-solving outside the lab. Keep this as a lightweight section, not a lifestyle detour.</p>
+              <div class="source-links">
+                <a href="https://www.youtube.com/watch?v=qGk7ptfTQzU">Watch climbing video</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="profile" aria-labelledby="profile-title">
+        <div class="wrap split">
+          <div>
+            <p class="eyebrow">Profile</p>
+            <h2 id="profile-title">A concise digital footprint for collaborators, conference organisers, and funders.</h2>
+            <div class="bio-copy">
+              <p>Alice Osmaston is a PhD candidate at University College London researching tuberculosis genomics, transmission, and drug resistance. Public profiles place her work in UCL's infection and immunity ecosystem, with extended field collaboration in Lima, Peru, alongside Universidad Peruana Cayetano Heredia.</p>
+              <p>This site is designed to make her work legible in under a minute: what she studies, what she has presented, what she has published, and where to find formal profiles.</p>
+            </div>
+            <div class="source-links">
+              <a href="https://profiles.ucl.ac.uk/92074-alice-osmaston/about">UCL profile</a>
+              <a href="https://profiles.ucl.ac.uk/92074-alice-osmaston/publications">UCL publications</a>
+              <a href="https://www.researchgate.net/profile/Alice-Osmaston-3">ResearchGate</a>
+              <a href="https://uk.linkedin.com/in/alice-osmaston-455676157">LinkedIn</a>
+              <a href="mailto:alice.osmaston.20@ucl.ac.uk">alice.osmaston.20@ucl.ac.uk</a>
+            </div>
+          </div>
+
+          <aside class="note-card">
+            <h3>Next details to add</h3>
+            <p>These will make the portfolio feel complete and personally owned.</p>
+            <ul>
+              <li>Professional headshot or field/lab photo with permission.</li>
+              <li>Contact: alice.osmaston.20@ucl.ac.uk.</li>
+              <li>Exact title and link for the recent UCL London talk.</li>
+              <li>PDFs for selected talks, if Alice wants slides or posters public.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">Draft portfolio built from public sources on 15 May 2026. Replace placeholder entries after Alice confirms the private talk details.</div>
+    </footer>
+    <script>
+      document.querySelectorAll("video[data-start-at]").forEach((video) => {
+        const startAt = Number(video.dataset.startAt);
+        if (!Number.isFinite(startAt)) return;
+        let primed = false;
+        const primeStart = () => {
+          if (primed || video.currentTime >= startAt) return;
+          primed = true;
+          video.currentTime = startAt;
+        };
+        video.addEventListener("loadedmetadata", primeStart, { once: true });
+        video.addEventListener("play", primeStart, { once: true });
+      });
+    </script>
+  </body>
+</html>
